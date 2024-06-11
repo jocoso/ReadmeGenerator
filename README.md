@@ -42,7 +42,7 @@ node index.js
 Follow the prompts to enter the necessary information for your README.md file. Once completed, a professional README.md file will be generated in the project directory.
 
 ## License
-This project is licensed under the MIT License. See the [APACHE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
+This project is licensed under the APACHE License. See the [APACHE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
 
 ## Contact
 For any questions or feedback, please reach out to:
