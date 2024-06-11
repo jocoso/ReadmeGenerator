@@ -41,13 +41,10 @@ node index.js
 ```
 Follow the prompts to enter the necessary information for your README.md file. Once completed, a professional README.md file will be generated in the project directory.
 
-## Contributions
-Contributions are welcome! Please read the [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
-
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [APACHE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
 
 ## Contact
 For any questions or feedback, please reach out to:
-- **Your Name**: [your.email@example.com](mailto:your.email@example.com)
+- **Your Name**: [joshua.collado022@gmail.com](joshua.collado022@gmail.com)
 - **GitHub**: [https://github.com/yourusername](https://github.com/yourusername)
