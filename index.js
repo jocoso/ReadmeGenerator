@@ -6,9 +6,13 @@ class READMEGenerator {
         this.content = '';
     }
 
+    generateTitle() {
+        // Ask user for title
+        // Add h1 title to content
+    }
+
     create() {
-        this.content = `# ${this.name}\n`;
-        return this.content;
+        // create
     }
 }
 
