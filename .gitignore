@@ -17,7 +17,7 @@ build/
 
 # macOS-specific files
 .DS_Store
-
+.vscode
 # Code coverage reports
 coverage/
 
