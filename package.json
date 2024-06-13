@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jocoso/ReadmeGenerator/issues"
   },
-  "homepage": "https://github.com/jocoso/ReadmeGenerator#readme"
+  "homepage": "https://github.com/jocoso/ReadmeGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
