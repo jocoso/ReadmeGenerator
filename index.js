@@ -1,4 +1,4 @@
-import inquirer from "inquirer";
+const inquirer = require('inquirer');
 
 class READMEGenerator {
     constructor() {
