@@ -2,9 +2,10 @@
   "name": "readmegenerator",
   "version": "1.0.0",
   "description": "The README.md Generator is a command-line application that helps developers create professional README.md files effortlessly.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,6 @@
   ],
   "author": "Joshua Collado",
   "license": "Apache-2.0",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/jocoso/ReadmeGenerator/issues"
-  },
-  "homepage": "https://github.com/jocoso/ReadmeGenerator#readme",
   "dependencies": {
     "inquirer": "^8.2.4"
   },
