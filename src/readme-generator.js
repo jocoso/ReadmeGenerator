@@ -17,6 +17,7 @@ class READMEGenerator {
         this.content += '- [License](#license)\n';
         this.content += '- [Contributors](#contributors)\n';
         this.content += '- [Tests](#tests)\n\n';
+    }
 
     async generateCreditions() {
         let answers = '';
@@ -44,9 +45,9 @@ class READMEGenerator {
                 }
             ]);
 
-            this.content += `Name: ${answers.credits}\n`;
-            this.content += `Github: ${answers.github}\n`;
-            this.content += `Email: ${answers.email}\n\n`;
+            this.content += `\nName: ${answers.credits}\n\n`;
+            this.content += `\nGithub: ${answers.github}\n\n`;
+            this.content += `\nEmail: ${answers.email}\n\n`;
 
         } while(answers.continue === 'yes');
     }
