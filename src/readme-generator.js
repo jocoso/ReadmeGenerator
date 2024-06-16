@@ -8,6 +8,23 @@ class READMEGenerator {
         this.content = '';
     }
 
+    async generateLicense() {
+        const answers = await inquirer.prompt([
+            {
+                type: "list",
+                name: "license",
+                message: "What kind of license should your project have?",
+                choices: [
+                    "MIT",
+                    "OPEN BSD",
+                    "NPM PACKAGES",
+                    "APACHE 2.0"
+                ]
+            }
+        ]);
+
+        this.content += `## License\n ${answers.license}\n`;
+
     async generateContent() {
         const answers = await inquirer.prompt([
             {
@@ -57,6 +74,7 @@ class READMEGenerator {
             }
             console.log('The file has been saved!');
         });
+
     }
 
     create() {
@@ -74,6 +92,8 @@ class READMEGenerator {
         // When all the information is collected, call the create function to generate the README.md file
         await this.generateTitle();
         await this.generateContent();
+        await this.generateLicense();
+
         this.create();
     }
 }
