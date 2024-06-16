@@ -8,6 +8,39 @@ class READMEGenerator {
         this.content = '';
     }
 
+
+    async generateCreditions() {
+        let answers = '';
+        this.content += '## Credits\n';
+
+        do {
+            answers = await inquirer.prompt([
+                {
+                    name: 'credits',
+                    message: 'Who contributed to this project?'
+                },
+                {
+                    name: 'github',
+                    message: 'What is their GitHub username?'
+                },
+                {
+                    name: 'email',
+                    message: 'What is their email address?'
+                },
+                {
+                    name: 'continue',
+                    message: 'Would you like to add another contributor?',
+                    type: 'list',
+                    choices: ['yes', 'no']
+                }
+            ]);
+
+            this.content += `Name: ${answers.credits}\n`;
+            this.content += `Github: ${answers.github}\n`;
+            this.content += `Email: ${answers.email}\n\n`;
+
+        } while(answers.continue === 'yes');
+
     async generateLicense() {
         const answers = await inquirer.prompt([
             {
@@ -88,6 +121,7 @@ class READMEGenerator {
             }
         ]);
         this.content += `\n\n# ${answers.title}\n`;
+
     }
 
     create() {
@@ -104,9 +138,11 @@ class READMEGenerator {
         // Ask the user for information
         // call the corresponding function to generate the content
         // When all the information is collected, call the create function to generate the README.md file
+      
         await this.generateTitle();
         await this.generateContent();
-        await this.generateLicense();
+        await this.generateLicense();\
+        await this.generateCreditions();
 
         this.create();
     }
