@@ -37,7 +37,26 @@ class READMEGenerator {
         this.content += `## Usage\n${answers.usage}\n`;
         this.content += `## Contribution\n${answers.contribution}\n`;
         this.content += `## Tests\n${answers.tests}\n`;
+    }
+      
+    async generateTitle() {
+        const answers = await inquirer.prompt([
+            {
+                type: "input",
+                name: "title",
+                message: "What is the title of your project?"
+            }
+        ]);
+        this.content += `# ${answers.title}\n`;
+    }
 
+    create() {
+        fs.writeFile(this.name, this.content, (err) => {
+            if (err) {
+                return console.log(err);
+            }
+            console.log('The file has been saved!');
+        });
     }
 
     create() {
@@ -54,8 +73,8 @@ class READMEGenerator {
         // call the corresponding function to generate the content
         // When all the information is collected, call the create function to generate the README.md file
         await this.generateContent();
+        await this.generateTitle();
         this.create();
-    
     }
 }
 

@@ -17,18 +17,19 @@ describe('README Generator', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
-        inquirer.prompt.mockResolvedValue({
+    });
+
+    it('should generate the README content', async () => {
+        const generator = new READMEGenerator('./test/');
+        await generator.generateContent();
+      
+       inquirer.prompt.mockResolvedValue({
             description: "This is the test description",
             installation: "This is the test installation",
             usage: "This is the test usage",
             contribution: "This is the test contribution",
             tests: "This is the test tests"
         });
-    });
-
-    it('should generate the README content', async () => {
-        const generator = new READMEGenerator('./test/');
-        await generator.generateContent();
 
         expect(generator.content).toContain('## Description\nThis is the test description\n');
         expect(generator.content).toContain('## Installation\nThis is the test installation\n');
@@ -37,14 +38,22 @@ describe('README Generator', () => {
         expect(generator.content).toContain('## Tests\nThis is the test tests\n');
     });
 
-    it("should run and create README file", async () => {
+  it("should run and create README file", async () => {
         const generator = new READMEGenerator('./test/');
         const createSpy = jest.spyOn(generator, 'create');
         await generator.run();
         expect(createSpy).toHaveBeenCalled();
     });
-
-    it("should write to the file system", async () => {
+  
+  it("should write to the file system", async () => {
+        inquirer.prompt.mockResolvedValue({
+            description: "This is the test description",
+            installation: "This is the test installation",
+            usage: "This is the test usage",
+            contribution: "This is the test contribution",
+            tests: "This is the test tests"
+        });
+      
         const generator = new READMEGenerator('./test/');
         await generator.run();
         expect(fs.writeFile).toHaveBeenCalledWith(
