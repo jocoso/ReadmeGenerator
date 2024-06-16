@@ -8,6 +8,17 @@ class READMEGenerator {
         this.content = '';
     }
 
+    async generateTitle() {
+        const answers = await inquirer.prompt([
+            {
+                type: "input",
+                name: "title",
+                message: "What is the title of your project?"
+            }
+        ]);
+        this.content += `# ${answers.title}\n`;
+    }
+
     create() {
         fs.writeFile(this.name, this.content, (err) => {
             if (err) {
@@ -18,10 +29,8 @@ class READMEGenerator {
     }
 
     async run() {
-        // Ask the user for information
-        // call the corresponding function to generate the content
-        // When all the information is collected, call the create function to generate the README.md file
-
+        await this.generateTitle();
+        this.create();
     }
 }
 
