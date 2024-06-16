@@ -9,7 +9,12 @@ class READMEGenerator {
     }
 
     create() {
-
+        fs.writeFile(this.name, this.content, (err) => {
+            if (err) {
+                return console.log(err);
+            }
+            console.log('The file has been saved!');
+        });
     }
 
     async run() {
