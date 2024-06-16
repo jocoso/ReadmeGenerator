@@ -17,5 +17,18 @@ describe('README Generator', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
+        inquirer.prompt.mockResolvedValue({
+            license: "MIT"
+        });
     });
+    
+    it('should generate the README license', async () => {
+        const generator = new READMEGenerator('./test/');
+        await generator.run();
+        expect(fs.writeFile).toHaveBeenCalledWith(
+            './test/README.md',
+            expect.stringContaining('## License\n MIT\n'),
+            expect.any(Function)
+        )
+    })
 });
