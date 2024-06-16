@@ -9,6 +9,15 @@ class READMEGenerator {
     }
 
 
+    generateTOC() {
+        this.content += '\n\n## Table of Contents\n';
+        this.content += '- [Description](#description)\n';
+        this.content += '- [Installation](#installation)\n';
+        this.content += '- [Usage](#usage)\n';
+        this.content += '- [License](#license)\n';
+        this.content += '- [Contributors](#contributors)\n';
+        this.content += '- [Tests](#tests)\n\n';
+
     async generateCreditions() {
         let answers = '';
         this.content += '## Credits\n';
@@ -107,6 +116,7 @@ class READMEGenerator {
         ]);
 
         this.content += `## Description\n${answers.description}\n`;
+        this.generateTOC();
         this.content += `## Installation\n${answers.installation}\n`;
         this.content += `## Usage\n${answers.usage}\n`;
         this.content += `## Contribution\n${answers.contribution}\n`;
@@ -122,6 +132,7 @@ class READMEGenerator {
             }
         ]);
         this.content += `\n\n# ${answers.title}\n`;
+
 
     }
 
@@ -139,7 +150,7 @@ class READMEGenerator {
         // Ask the user for information
         // call the corresponding function to generate the content
         // When all the information is collected, call the create function to generate the README.md file
-        
+
         await this.generateTitle();
         await this.generateContent();
         await this.generateLicense();
