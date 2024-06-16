@@ -21,14 +21,58 @@ describe('README Generator', () => {
             license: "MIT"
         });
     });
+
     
     it('should generate the README license', async () => {
+
+    it('should generate the README content', async () => {
+        const generator = new READMEGenerator('./test/');
+        await generator.generateContent();
+
+        inquirer.prompt.mockResolvedValue({
+            description: "This is the test description",
+            installation: "This is the test installation",
+            usage: "This is the test usage",
+            contribution: "This is the test contribution",
+            tests: "This is the test tests"
+        });
+
+        expect(generator.content).toContain('## Description\nThis is the test description\n');
+        expect(generator.content).toContain('## Installation\nThis is the test installation\n');
+        expect(generator.content).toContain('## Usage\nThis is the test usage\n');
+        expect(generator.content).toContain('## Contribution\nThis is the test contribution\n');
+        expect(generator.content).toContain('## Tests\nThis is the test tests\n');
+    });
+
+    it("should run and create README file", async () => {
+        const generator = new READMEGenerator('./test/');
+        const createSpy = jest.spyOn(generator, 'create');
+        await generator.run();
+        expect(createSpy).toHaveBeenCalled();
+    });
+
+    it("should write to the file system", async () => {
+        inquirer.prompt.mockResolvedValue({
+            description: "This is the test description",
+            installation: "This is the test installation",
+            usage: "This is the test usage",
+            contribution: "This is the test contribution",
+            tests: "This is the test tests"
+        });
+
+
         const generator = new READMEGenerator('./test/');
         await generator.run();
         expect(fs.writeFile).toHaveBeenCalledWith(
             './test/README.md',
+
             expect.stringContaining('## License\n MIT\n'),
             expect.any(Function)
-        )
-    })
+            )
+        });
+            expect.any(String),
+            expect.any(Function)
+        );
+    });
+
 });
