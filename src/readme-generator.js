@@ -38,7 +38,7 @@ class READMEGenerator {
         this.content += `## Contribution\n${answers.contribution}\n`;
         this.content += `## Tests\n${answers.tests}\n`;
     }
-      
+
     async generateTitle() {
         const answers = await inquirer.prompt([
             {
@@ -72,8 +72,8 @@ class READMEGenerator {
         // Ask the user for information
         // call the corresponding function to generate the content
         // When all the information is collected, call the create function to generate the README.md file
-        await this.generateContent();
         await this.generateTitle();
+        await this.generateContent();
         this.create();
     }
 }
