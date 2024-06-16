@@ -40,6 +40,7 @@ class READMEGenerator {
             this.content += `Email: ${answers.email}\n\n`;
 
         } while(answers.continue === 'yes');
+    }
 
     async generateLicense() {
         const answers = await inquirer.prompt([
@@ -138,10 +139,10 @@ class READMEGenerator {
         // Ask the user for information
         // call the corresponding function to generate the content
         // When all the information is collected, call the create function to generate the README.md file
-      
+        
         await this.generateTitle();
         await this.generateContent();
-        await this.generateLicense();\
+        await this.generateLicense();
         await this.generateCreditions();
 
         this.create();
