@@ -16,14 +16,37 @@ class READMEGenerator {
                 message: "What kind of license should your project have?",
                 choices: [
                     "MIT",
-                    "OPEN BSD",
-                    "NPM PACKAGES",
-                    "APACHE 2.0"
+                    "BSD 3-Clause",
+                    "GNU GPL v3",
+                    "Apache 2.0",
+                    "Unlicensed"
                 ]
             }
         ]);
 
         this.content += `## License\n ${answers.license}\n`;
+        this.addLicenseBadge(answers.license);
+
+    }
+
+    addLicenseBadge(license) {
+        switch (license) {
+            case "MIT":
+                this.content = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)" + this.content;
+                break;
+            case "BSD 3-Clause":
+                this.content = "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)" + this.content;
+                break;
+            case "GNU GPL v3":
+                this.content = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)" + this.content;
+                break;
+            case "Apache 2.0":
+                this.content = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)" + this.content;
+                break;
+            default:
+                this.content = "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)" + this.content;
+        }
+    }
 
     async generateContent() {
         const answers = await inquirer.prompt([
@@ -64,7 +87,7 @@ class READMEGenerator {
                 message: "What is the title of your project?"
             }
         ]);
-        this.content += `# ${answers.title}\n`;
+        this.content += `\n\n# ${answers.title}\n`;
     }
 
     create() {
@@ -75,15 +98,6 @@ class READMEGenerator {
             console.log('The file has been saved!');
         });
 
-    }
-
-    create() {
-        fs.writeFile(this.name, this.content, (err) => {
-            if (err) {
-                return console.log(err);
-            }
-            console.log('The file has been saved!');
-        });
     }
 
     async run() {
