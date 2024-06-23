@@ -3,6 +3,8 @@
 ## Description
 The README.md Generator is a command-line application that helps developers create professional README.md files effortlessly. Using the Inquirer package, it interactively gathers user input to generate a comprehensive README.md tailored to project-specific needs, ensuring all essential sections are included for polished and consistent documentation.
 
+[![Watch the video](src/media/image.png)](src/media/23.06.2024_11.59.54_REC.mp4)
+
 ## Features
 - **Interactive User Input**: Utilizes the Inquirer package for a seamless and user-friendly command-line interface.
 - **Professional README Structure**: Ensures that the generated README.md adheres to best practices and includes all essential sections such as:
